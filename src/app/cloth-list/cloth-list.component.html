@@ -1,0 +1,38 @@
+<div class="p-grid p-dir-col p-fluid container">
+  <h2>
+   Cloth Records
+  </h2>
+  <div>
+    <ng-container>
+      <div class="p-grid">
+        <ng-container *ngTemplateOutlet="details; context: { $implicit: rowData() }"></ng-container>
+      </div>
+    </ng-container>
+  </div>
+  <div>
+    <ng-template #details let-rowData>
+      <p-table [value]="rowData" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Size</th>
+            <th>Color</th>
+            <th>Created Timestamp</th>
+            <th>Updated Timestamp</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data>
+          <tr>
+            <td>{{ data.id }}</td>
+            <td>{{ data.name }}</td>
+            <td>{{ data.size }}</td>
+            <td>{{ data.color }}</td>
+            <td>{{ data.createdTimestamp }}</td>
+            <td>{{ data.updatedTimestamp }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="p-grid p-dir-col p-fluid container">
+  <h2 class="text-left">Enter Cloth Information</h2>
+  
+  <form [formGroup]="userForm" (ngSubmit)="submitForm($event)" class="p-fluid">
+    <div class="p-grid p-justify-start">
+      <div class="p-col" style="width: 30%; margin-left: 10px; margin-bottom: 10px;">
+        <div class="p-field p-grid p-align-center">
+          <label for="name" class="p-mr-2" style="font-weight: bold;">Name</label>
+          <input type="text" pInputText class="p-inputtext" id="name" formControlName="name">
+          <div *ngIf="userForm.get('name').invalid && (userForm.get('name').dirty || userForm.get('name').touched)" class="p-error">Name is required.</div>
+        </div>
+      </div>
+
+      <div class="p-col" style="width: 30%; margin-left: 10px; margin-bottom: 10px;">
+        <div class="p-field p-grid p-align-center">
+          <label for="size" class="p-mr-2" style="font-weight: bold;">Size</label>
+          <input type="text" pInputText class="p-inputtext" id="size" formControlName="size">
+          <div *ngIf="userForm.get('size').invalid && (userForm.get('size').dirty || userForm.get('size').touched)" class="p-error">Size is required.</div>
+        </div>
+      </div>
+
+      <div class="p-col" style="width: 30%; margin-left: 10px; margin-bottom: 10px;">
+        <div class="p-field p-grid p-align-center">
+          <label for="text" class="p-mr-2" style="font-weight: bold;">Color</label>
+          <input type="text" pInputText class="p-inputtext" id="color" formControlName="color">
+          <div *ngIf="userForm.get('color').invalid && (userForm.get('color').dirty || userForm.get('color').touched)" class="p-error">Color is required.</div>
+        </div>
+      </div>
+
+      <div class="p-col" style="width: 10%; margin-left: calc(250px + 10px); margin-bottom: 10px;">
+        <div class="p-field p-d-flex p-jc-end">
+          <button type="button" pButton class="p-button p-button-primary" (click)="submitForm($event)">Submit</button>
+        </div>  
+      </div>
+    </div>
+  </form>
+</div>
